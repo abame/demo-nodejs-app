@@ -46,5 +46,16 @@
             }
         ]
     },
+    "env": {
+        "jest": true
+    },
+    "overrides": [
+        {
+            "files": ["**/*.spec.ts"],
+            "env": { "jest/globals": true, "jest": true },
+            "plugins": ["jest"],
+            "extends": ["plugin:jest/recommended"]
+        }
+    ],
     "ignorePatterns": ["dist", "**/node_modules/**"]
 }
