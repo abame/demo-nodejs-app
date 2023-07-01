@@ -17,6 +17,9 @@ jobs:
     tests:
         name: Run Tests
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ../
         strategy:
             matrix:
                 node-version: [18.x, 20.x]
