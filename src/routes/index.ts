@@ -1,4 +1,4 @@
-import { Express } from 'express'
+import type { Express } from 'express'
 import v1 from './api/v1'
 import render from './render'
 

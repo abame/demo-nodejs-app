@@ -1,8 +1,13 @@
 {
     "compilerOptions": {
+        "outDir": "dist",
         "module": "commonjs",
         "esModuleInterop": true,
-        "sourceMap": false
+        "sourceMap": false,
+        "rootDir": "src",
+        "strictNullChecks": true,
+        "skipLibCheck": true
     },
-    "exclude": ["node_modules"]
+    "include": ["src"],
+    "exclude": ["node_modules", "megalinter-reports"]
 }

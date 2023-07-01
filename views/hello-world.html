@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% set title = 'Hello World' %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center mt-5">{{ data.message }}</h1>
+    <table class="table table-responsive table-striped table-hover table-sm">
+      <thead class="table-info">
+        <tr><th>ID</th><th>Name</th></tr>
+      </thead>
+      <tbody>
+        {% for product in data.products %}
+        <tr>
+          <td>
+            {{ product.id }}
+          </td><td>{{ product.name }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

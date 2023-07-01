@@ -1,6 +1,10 @@
 APPLY_FIXES: all # all, none, or list of linter keys
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
+EXCLUDED_DIRECTORIES:
+    - dist
+    - node_modules
+    - megalinter-reports
 DISABLE_LINTERS:
     - BASH_SHELLCHECK
     - REPOSITORY_CHECKOV

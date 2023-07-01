@@ -1,3 +1,5 @@
 node_modules
 .env
 megalinter-reports/
+dist
+access.log
