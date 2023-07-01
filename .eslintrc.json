@@ -57,5 +57,10 @@
             "extends": ["plugin:jest/recommended"]
         }
     ],
+    "settings": {
+      "jest": {
+        "version": 29
+      }
+    },
     "ignorePatterns": ["dist", "**/node_modules/**"]
 }
