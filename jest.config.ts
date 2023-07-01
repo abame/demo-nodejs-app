@@ -19,6 +19,7 @@ const config: Config.InitialOptions = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   testMatch: ['**/*.spec.ts'],
+  collectCoverageFrom: ["./src/middleware/**/*.ts", "./src/app.ts", "./src/routes/api/v1/hello-world.ts"],
   coverageThreshold: coverageThreshold(100)
 }
 
