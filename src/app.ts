@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import nunjucks from 'nunjucks'
-import helmet from "helmet"
+import helmet from 'helmet'
 import routes from './routes'
 
 dotenv.config()
