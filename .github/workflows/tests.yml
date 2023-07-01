@@ -24,7 +24,7 @@ jobs:
 
             - name: Install dependencies
               run: |
-                npm ci --legacy-peer-deps
+                yarn install
 
             - name: Run Tests
               run: |
