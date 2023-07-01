@@ -13,7 +13,6 @@ import routes from './routes'
 
 dotenv.config()
 
-const port = process.env.PORT ?? 3000
 const app = express()
 
 app.use((request: Request, response: Response, next: NextFunction) => {
@@ -56,6 +55,4 @@ app.set('view engine', 'html')
 
 routes(app)
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
-})
+export default app

@@ -1,3 +1,4 @@
+---
 APPLY_FIXES: all # all, none, or list of linter keys
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
