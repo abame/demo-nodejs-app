@@ -1,0 +1,26 @@
+{
+    "name": "bitly",
+    "version": "1.0.0",
+    "description": "Simple API demo application",
+    "main": "index.js",
+    "author": "Albion Bame",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "start:dev": "nodemon src/app.ts"
+    },
+    "dependencies": {
+        "dotenv": "16.3.1",
+        "express": "4.18.2",
+        "nunjucks": "3.2.4"
+    },
+    "devDependencies": {
+        "@types/express": "4.17.17",
+        "@types/nunjucks": "3.2.3",
+        "eslint": "8.44.0",
+        "nodemon": "2.0.22",
+        "prettier": "2.8.8",
+        "ts-node": "10.9.1",
+        "typescript": "5.1.6"
+    }
+}

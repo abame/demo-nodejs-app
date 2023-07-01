@@ -1,0 +1,28 @@
+{
+    "ignorePaths": [
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        "**/.pnpm-lock.json",
+        ".vscode",
+        "megalinter",
+        "package-lock.json",
+        "report",
+        ".env",
+        ".github"
+    ],
+    "language": "en",
+    "noConfigSearch": true,
+    "words": [
+        "megalinter",
+        "oxsecurity",
+        "autoescape",
+        "Bame",
+        "venv",
+        "stefanzweifel",
+        "SHELLCHECK",
+        "DEVSKIM",
+        "gitmessage"
+    ],
+    "version": "0.2"
+}
