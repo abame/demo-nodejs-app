@@ -2,18 +2,9 @@
 name: Tests
 
 on:
-    push:
-    pull_request:
-        branches: [master]
+    workflow_call: # will be triggered from another workflow
 
 jobs:
-    linter:
-        uses: ./.github/workflows/mega-linter.yml
-        permissions:
-            # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
-            contents: write
-            issues: write
-            pull-requests: write
     tests:
         name: Run Tests
         runs-on: ubuntu-latest
