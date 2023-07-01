@@ -23,7 +23,8 @@
         "stefanzweifel",
         "SHELLCHECK",
         "DEVSKIM",
-        "gitmessage"
+        "gitmessage",
+        "uuidv"
     ],
     "version": "0.2"
 }
