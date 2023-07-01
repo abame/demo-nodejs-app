@@ -58,9 +58,9 @@
         }
     ],
     "settings": {
-      "jest": {
-        "version": 29
-      }
+        "jest": {
+            "version": 29
+        }
     },
     "ignorePatterns": ["dist", "**/node_modules/**"]
 }
