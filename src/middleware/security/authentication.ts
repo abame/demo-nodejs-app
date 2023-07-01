@@ -4,5 +4,7 @@ export default (request: Request, response: Response, next: NextFunction) => {
     return next()
   }
 
-  return response.status(403).send({ status: 'fail', message: 'Authorization failed' })
+  return response
+    .status(403)
+    .send({ status: 'fail', message: 'Authorization failed' })
 }

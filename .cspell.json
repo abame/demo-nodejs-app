@@ -24,7 +24,8 @@
         "SHELLCHECK",
         "DEVSKIM",
         "gitmessage",
-        "uuidv"
+        "uuidv",
+        "EDITMSG"
     ],
     "version": "0.2"
 }

@@ -4,7 +4,9 @@
         "module": "commonjs",
         "esModuleInterop": true,
         "sourceMap": false,
-        "rootDir": "src"
+        "rootDir": "src",
+        "strictNullChecks": true,
+        "skipLibCheck": true
     },
     "include": ["src"],
     "exclude": ["node_modules", "megalinter-reports"]

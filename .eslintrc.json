@@ -1,0 +1,50 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "sourceType": "module",
+        "ecmaVersion": 2020
+    },
+    "plugins": ["@typescript-eslint/eslint-plugin"],
+    "rules": {
+        "@typescript-eslint/strict-boolean-expressions": [
+            2,
+            {
+                "allowString": false,
+                "allowNumber": false
+            }
+        ],
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "eqeqeq": ["error", "always"],
+        "no-console": "warn",
+        "no-debugger": "error",
+        "padding-line-between-statements": [
+            "error",
+            {
+                "blankLine": "always",
+                "prev": "block-like",
+                "next": "*"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "off",
+            {
+                "destructuredArrayIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "prefer": "type-imports"
+            }
+        ]
+    },
+    "ignorePatterns": ["dist", "**/node_modules/**"]
+}

@@ -1,4 +1,4 @@
-import { Express } from 'express'
+import type { Express } from 'express'
 import helloWorldRoute from './hello-world'
 
 export default (app: Express) => {
