@@ -3,8 +3,16 @@ name: Deploy
 
 on:
     push:
+        branches:
+            - master
     pull_request:
-        branches: [master]
+        types:
+            - synchronize # PR commits
+            - opened
+            - ready_for_review
+            - reopened
+        branches:
+            - master
 
 jobs:
     linter:
