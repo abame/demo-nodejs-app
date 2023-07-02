@@ -8,6 +8,11 @@ variable "access_key" {
   description = "AWS Access Key"
 }
 
+variable "env_variables" {
+  type        = any
+  description = "Container env variables"
+}
+
 variable "account_id" {
   type        = string
   description = "AWS Account ID"

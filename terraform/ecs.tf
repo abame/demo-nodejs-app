@@ -39,6 +39,7 @@ resource "aws_ecs_task_definition" "task" {
           hostPort      = 3000
         }
       ]
+      environment: var.env_variables
     }
   ])
 }
