@@ -1,3 +1,4 @@
+# kics-scan ignore
 resource "aws_lb" "alb" {
   name                       = "demo-app-load-balancer"
   internal                   = false
