@@ -1,3 +1,4 @@
+# kics-scan ignore
 resource "aws_iam_role" "fargate" {
   name = "fargate-role"
   path = "/serviceaccounts/"

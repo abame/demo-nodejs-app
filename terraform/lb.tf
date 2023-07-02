@@ -5,7 +5,7 @@ resource "aws_lb" "alb" {
   load_balancer_type         = "application"
   subnets                    = [for s in data.aws_subnet.subnets : s.id]
   drop_invalid_header_fields = true
-  enable_deletion_protection = true
+  enable_deletion_protection = false
   tags = {
     Environment = "production"
   }

@@ -13,6 +13,11 @@ variable "account_id" {
   description = "AWS Account ID"
 }
 
+variable "ecr_image" {
+  type        = string
+  description = "ECR Image"
+}
+
 variable "secret_key" {
   type        = string
   description = "AWS Secret Key"

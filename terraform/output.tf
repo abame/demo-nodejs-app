@@ -3,16 +3,6 @@ output "aws_region" {
   description = "The AWS region used"
 }
 
-output "ecr_url" {
-  value       = aws_ecr_repository.repository.repository_url
-  description = "The ECR repository URL"
-}
-
-output "ecr_repository_name" {
-  value       = aws_ecr_repository.repository.name
-  description = "The ECR repository name"
-}
-
 output "app_url" {
   value       = aws_lb.alb.dns_name
   description = "The public ALB DNS"
