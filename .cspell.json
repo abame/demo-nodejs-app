@@ -29,7 +29,9 @@
         "tsbuildinfo",
         "bitnami",
         "healthcheck",
-        "cpus"
+        "cpus",
+        "pipefail",
+        "giga"
     ],
     "version": "0.2"
 }

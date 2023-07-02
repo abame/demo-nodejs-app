@@ -4,12 +4,18 @@ WORKDIR /code
 
 COPY . .
 
+# Set SHELL flags for RUN commands to allow -e and pipefail
+# Rationale: https://github.com/hadolint/hadolint/wiki/DL4006
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+
 RUN yarn install \
     && yarn build \
     && rm -rf node_modules \
     && yarn install --production 
 
-RUN wget https://gobinaries.com/tj/node-prune --output-document - | /bin/sh \
+# Set progress bar for wget to avoid excessively bloated build logs
+# Rationale: https://github.com/hadolint/hadolint/wiki/DL3047
+RUN wget --progress=dot:giga https://gobinaries.com/tj/node-prune --output-document - | /bin/sh \
     && node-prune
 
 FROM node:20.3.1-bullseye-slim@sha256:18cfcccefacb1bb2ca8df40f881cca0f1eedeae020154e6b07eddad0073bdc8e
