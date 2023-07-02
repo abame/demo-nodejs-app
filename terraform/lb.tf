@@ -1,5 +1,6 @@
 resource "aws_lb" "alb" {
-  name                       = "demo-app-load-balancer"
+  name = "demo-app-load-balancer"
+  #tfsec:ignore:aws-elbv2-alb-not-public
   internal                   = false
   load_balancer_type         = "application"
   subnets                    = [for s in data.aws_subnet.subnets : s.id]
@@ -25,22 +26,6 @@ resource "aws_wafregional_web_acl" "demo_app_acl" {
 resource "aws_wafregional_web_acl_association" "waf33" {
   resource_arn = aws_lb.alb.arn
   web_acl_id   = aws_wafregional_web_acl.demo_app_acl.id
-}
-
-resource "aws_eip" "eip" {
-  vpc = true
-  tags = {
-    Environment = "production"
-  }
-}
-
-resource "aws_shield_protection" "asp" {
-  name         = "demo-app-shield"
-  resource_arn = "arn:aws:ec2:${var.aws_region}:${var.account_id}:eip-allocation/${aws_eip.eip.id}"
-
-  tags = {
-    Environment = "production"
-  }
 }
 
 resource "aws_lb_target_group" "group" {

@@ -40,7 +40,10 @@
         "wafregional",
         "TERRASCAN",
         "KICS",
-        "TRIVY"
+        "TRIVY",
+        "tfsec",
+        "elbv",
+        "loadbalancer"
     ],
     "version": "0.2"
 }
