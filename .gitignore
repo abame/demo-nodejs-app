@@ -4,3 +4,5 @@ megalinter-reports/
 dist
 **/access.log
 coverage
+terraform/.terraform
+terraform/terraform.*

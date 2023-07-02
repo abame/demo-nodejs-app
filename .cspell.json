@@ -31,7 +31,20 @@
         "healthcheck",
         "cpus",
         "pipefail",
-        "giga"
+        "giga",
+        "FARGATE",
+        "fargate",
+        "awsvpc",
+        "jsonencode",
+        "serviceaccounts",
+        "wafregional",
+        "TERRASCAN",
+        "KICS",
+        "TRIVY",
+        "tfsec",
+        "elbv",
+        "loadbalancer",
+        "trivyignore"
     ],
     "version": "0.2"
 }
