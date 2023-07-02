@@ -33,5 +33,12 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+            - name: Declare some variables
+              id: vars
+              shell: bash
+              run: |
+                echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+            - name: Build the tagged Docker image
+              run: docker build . --file Dockerfile --tag abame/demo-app:${{steps.vars.outputs.sha_short}}
             - name: deploy
               run: echo "Application is deployed"
