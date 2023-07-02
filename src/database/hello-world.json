@@ -1,0 +1,18 @@
+{
+    "status": "success",
+    "message": "Hello World API!",
+    "products": [
+        {
+            "id": "1",
+            "name": "MacBook Pro"
+        },
+        {
+            "id": "2",
+            "name": "HP"
+        },
+        {
+            "id": "3",
+            "name": "Dell"
+        }
+    ]
+}

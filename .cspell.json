@@ -25,7 +25,13 @@
         "DEVSKIM",
         "gitmessage",
         "uuidv",
-        "EDITMSG"
+        "EDITMSG",
+        "tsbuildinfo",
+        "bitnami",
+        "healthcheck",
+        "cpus",
+        "pipefail",
+        "giga"
     ],
     "version": "0.2"
 }

@@ -1,0 +1,36 @@
+---
+version: '3.7'
+
+services:
+    demo-app:
+        platform: linux/amd64
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        ports:
+            - '127.0.0.1:3000:3000'
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.3'
+                    memory: 256M
+                reservations:
+                    cpus: '0.1'
+                    memory: 128M
+        networks:
+            - demo-app
+        restart: always
+        pid: 'demo-app:demo-app'
+        security_opt:
+            - no-new-privileges:true
+        healthcheck:
+            test: curl --fail -s http://localhost:3000/hello-world || exit 1
+            interval: 1m30s
+            timeout: 10s
+            retries: 3
+        cap_drop:
+            - all
+networks:
+    demo-app:

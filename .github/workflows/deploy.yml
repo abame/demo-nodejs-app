@@ -16,6 +16,7 @@ on:
 
 jobs:
     linter:
+        name: Linters
         uses: ./.github/workflows/mega-linter.yml
         permissions:
             # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
@@ -23,9 +24,10 @@ jobs:
             issues: write
             pull-requests: write
     tests:
+        name: Tests
         uses: ./.github/workflows/tests.yml
     deploy:
-        name: Run Deployment
+        name: Deployment
         runs-on: ubuntu-latest
         needs:
             - linter
@@ -33,5 +35,33 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
-            - name: deploy
+
+            - name: Declare tag variable
+              id: vars
+              shell: bash
+              run: |
+                echo "tag=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ secrets.AWS_REGION }}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Build and push the tagged Docker image
+              env:
+                  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+                  IMAGE_TAG: ${{ steps.vars.outputs.tag }}
+              run: |
+                docker build . --file Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+                docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+                echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+            - name: Deploy
               run: echo "Application is deployed"
