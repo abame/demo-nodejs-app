@@ -43,7 +43,8 @@
         "TRIVY",
         "tfsec",
         "elbv",
-        "loadbalancer"
+        "loadbalancer",
+        "trivyignore"
     ],
     "version": "0.2"
 }

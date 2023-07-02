@@ -1,6 +1,5 @@
 resource "aws_lb" "alb" {
-  name = "demo-app-load-balancer"
-  #tfsec:ignore:aws-elbv2-alb-not-public
+  name                       = "demo-app-load-balancer"
   internal                   = false
   load_balancer_type         = "application"
   subnets                    = [for s in data.aws_subnet.subnets : s.id]

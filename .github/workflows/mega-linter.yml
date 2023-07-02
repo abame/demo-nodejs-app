@@ -45,7 +45,7 @@ jobs:
                   # https://megalinter.io/configuration/
                   VALIDATE_ALL_CODEBASE: true # Set ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} to validate only diff with main branch
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  DISABLE: TERRAFORM_TERRASCAN,REPOSITORY_KICS,REPOSITORY_TRIVY
+                  DISABLE: TERRAFORM_TERRASCAN,REPOSITORY_KICS
 
             # Upload MegaLinter artifacts
             - name: Archive production artifacts
