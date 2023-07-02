@@ -11,9 +11,9 @@ resource "aws_lb" "alb" {
   }
 }
 
-resource "aws_wafregional_web_acl" "demo_app_acl" {
-  name        = "demo_app_acl"
-  metric_name = "demo_app_acl"
+resource "aws_wafregional_web_acl" "demo" {
+  name        = "demo"
+  metric_name = "demo"
 
   default_action {
     type = "ALLOW"
@@ -25,13 +25,13 @@ resource "aws_wafregional_web_acl" "demo_app_acl" {
 
 resource "aws_wafregional_web_acl_association" "waf33" {
   resource_arn = aws_lb.alb.arn
-  web_acl_id   = aws_wafregional_web_acl.demo_app_acl.id
+  web_acl_id   = aws_wafregional_web_acl.demo.id
 }
 
 resource "aws_lb_target_group" "group" {
   name        = "demo-app-lb-target-group"
   port        = 80
-  protocol    = "HTTPS"
+  protocol    = "HTTP"
   vpc_id      = data.aws_vpc.vpc.id
   target_type = "ip"
   tags = {
@@ -44,7 +44,7 @@ resource "aws_lb_target_group" "group" {
 resource "aws_lb_listener" "frontend" {
   load_balancer_arn = aws_lb.alb.arn
   port              = "80"
-  protocol          = "HTTPS"
+  protocol          = "HTTP"
 
   default_action {
     type             = "forward"

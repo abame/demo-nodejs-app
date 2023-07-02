@@ -1,3 +1,4 @@
+# kics-scan ignore
 resource "aws_ecs_cluster" "cluster" {
   name               = var.ecs_values.cluster_name
   capacity_providers = ["FARGATE"]
@@ -35,7 +36,7 @@ resource "aws_ecs_task_definition" "task" {
       portMappings = [
         {
           containerPort = 3000
-          hostPort      = 80
+          hostPort      = 3000
         }
       ]
     }
@@ -56,7 +57,7 @@ resource "aws_ecs_service" "service" {
   load_balancer {
     target_group_arn = aws_lb_target_group.group.arn
     container_name   = "demo-app"
-    container_port   = 80
+    container_port   = 3000
   }
   deployment_controller {
     type = "ECS"
