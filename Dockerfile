@@ -33,6 +33,6 @@ RUN mkdir -p /app/node_modules/.cache \
 
 USER 1001:1001
 
-HEALTHCHECK CMD curl --fail http://localhost:3000/hello-world || exit 1
+HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1
 
 CMD ["node", "./index.js"]
