@@ -35,4 +35,6 @@ USER 1001:1001
 
 HEALTHCHECK CMD curl --fail http://localhost:3000/hello-world || exit 1
 
+EXPOSE 3000
+
 CMD ["node", "./index.js"]
