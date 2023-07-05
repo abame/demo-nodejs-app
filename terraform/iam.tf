@@ -35,7 +35,7 @@ resource "aws_iam_role_policy" "fargate" {
     {
         "Effect": "Allow",
         "Action": "ecr:*",
-        "Resource": "arn:aws:ecr:${var.aws_region}:${var.account_id}:repository/${var.repository_name}"
+        "Resource": "*"
       }
   ]
 }
