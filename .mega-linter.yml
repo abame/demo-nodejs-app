@@ -6,6 +6,7 @@ EXCLUDED_DIRECTORIES:
     - dist
     - node_modules
     - megalinter-reports
+    - .git
 DISABLE_LINTERS:
     - BASH_SHELLCHECK
     - REPOSITORY_CHECKOV

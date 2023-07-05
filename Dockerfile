@@ -33,7 +33,7 @@ RUN mkdir -p /app/node_modules/.cache \
 
 USER 1001:1001
 
-HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --start-period=30s CMD curl --fail http://127.0.0.1:3000 || exit 1
 
 EXPOSE 3000
 

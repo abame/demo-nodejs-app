@@ -11,23 +11,6 @@ resource "aws_lb" "alb" {
   }
 }
 
-resource "aws_wafregional_web_acl" "demo" {
-  name        = "demo"
-  metric_name = "demo"
-
-  default_action {
-    type = "ALLOW"
-  }
-  tags = {
-    Environment = "production"
-  }
-}
-
-resource "aws_wafregional_web_acl_association" "waf33" {
-  resource_arn = aws_lb.alb.arn
-  web_acl_id   = aws_wafregional_web_acl.demo.id
-}
-
 resource "aws_lb_target_group" "group" {
   name        = "demo-app-lb-target-group"
   port        = 80

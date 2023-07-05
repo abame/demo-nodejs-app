@@ -22,7 +22,7 @@ services:
         networks:
             - demo-app
         restart: always
-        pid: 'demo-app:demo-app'
+        pid: 'container:demo-nodejs-app-demo-app-1'
         security_opt:
             - no-new-privileges:true
         healthcheck:

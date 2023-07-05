@@ -14,6 +14,7 @@ resource "aws_iam_role" "fargate" {
         Sid    = ""
         Principal = {
           Service = [
+            "ecr.amazonaws.com",
             "ecs.amazonaws.com",
             "ecs-tasks.amazonaws.com"
           ]
@@ -32,18 +33,10 @@ resource "aws_iam_role_policy" "fargate" {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Action": [
-        "ecr:CompleteLayerUpload",
-        "ecr:DescribeRepositories",
-        "ecr:ListImages",
-        "ecr:DescribeImages",
-        "ecr:GetAuthorizationToken",
-        "ecr:GetDownloadUrlForLayer",
-        "ecr:GetLifecyclePolicy"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:ecr:${var.aws_region}:${var.account_id}:repository/${var.repository_name}"
-    }
+        "Effect": "Allow",
+        "Action": "ecr:*",
+        "Resource": "arn:aws:ecr:${var.aws_region}:${var.account_id}:repository/${var.repository_name}"
+      }
   ]
 }
 EOF
