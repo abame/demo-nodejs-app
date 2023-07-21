@@ -44,7 +44,9 @@
         "tfsec",
         "elbv",
         "loadbalancer",
-        "trivyignore"
+        "trivyignore",
+        "abame",
+        "mergify"
     ],
     "version": "0.2"
 }
