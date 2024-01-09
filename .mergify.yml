@@ -1,7 +1,27 @@
 pull_request_rules:
-    - name: Automatic merge on approval
-      conditions:
-          - '#approved-reviews-by>=1'
-      actions:
-          merge:
-              method: merge
+  - name: automatic merge of 🚑 hotfix (high priority)
+    conditions:
+      - status-success=Travis CI - Pull Request
+      - "#approved-reviews-by>=2"
+      - base=master
+      - label=🚑 hotfix
+    actions:
+      merge:
+        method: merge
+  - name: automatic merge of bot 🤖 (low priority)
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - status-success=Travis CI - Pull Request
+      - "#approved-reviews-by>=2"
+      - base=master
+    actions:
+      merge:
+        method: merge
+  - name: automatic merge for master when reviewed and CI passes
+    conditions:
+      - status-success=Travis CI - Pull Request
+      - "#approved-reviews-by>=2"
+      - base=master
+    actions:
+      merge:
+        method: merge
